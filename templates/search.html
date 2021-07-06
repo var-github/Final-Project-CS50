@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <head><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet"></head>
+    <style>
+        td, th {
+            text-align: left;
+            height: 45px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        tr {
+            border-top: 1px solid lightgrey;
+        }
+        tbody tr:nth-of-type(odd) {
+            background-color: #ebebeb;
+        }
+    </style>
+    <h1 style="font-family: 'Caveat', cursive; color: orange">Search</h1>
+    <form action="/search" method="POST">
+        <select name="catagory" style="height: 30px">
+            <option disabled value="catagory">Category</option>
+            {% if catagory == "all" %}
+                <option selected value="all">All</option>
+            {% else %}
+                <option value="all">All</option>
+            {% endif %}
+            {% if catagory == "title" %}
+                <option selected value="title">Title</option>
+            {% else %}
+                <option value="title">Title</option>
+            {% endif %}
+            {% if catagory == "author" %}
+                <option selected value="author">Author</option>
+            {% else %}
+                <option value="author">Author</option>
+            {% endif %}
+            {% if catagory == "ISBN" %}
+                <option selected value="ISBN">ISBN</option>
+            {% else %}
+                <option value="ISBN">ISBN</option>
+            {% endif %}
+        </select>
+        {% if query is not none %}
+            <input type="text" autocomplete="off" placeholder="Search info" name="name" value="{{ query }}">
+        {% else %}
+            <input type="text" autofocus autocomplete="off" placeholder="Search info" name="name">
+        {% endif %}
+        <input type="submit">
+   </form>
+   {% if message is not none %}
+        {% if error == "1" %}
+            <div style="height: 50px"></div>
+            <p>{{ message }}</p>
+        {% else %}
+            <div style="height: 50px"></div>
+            <table style="width: 100%">
+                <thead>
+                    <tr>
+                        <th style="text-align: center">Title</th>
+                        <th>Author</th>
+                        <!-- <th>Isbn</th> -->
+                        <th>Subject</th>
+                        <th>Language</th>
+                        <th>Publisher</th>
+                        <th style="text-align: center">Date  published</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in message %}
+                        <tr>
+                            <td style="width: 250px">
+                                <form action="/info" method="post" style="width: 100%; height: 100%">
+                                    <input type="hidden" value="{{ x.book_id }}" name="book_id">
+                                    <input type="submit" value="{{ x.title }}" style="background: transparent; border: 0; display: inline-block; height: 100%; width: 100%; white-space: normal">
+                                </form>
+                            </td>
+                            <td>{% for y in x.author %}
+                                    {{ y }}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
+                            </td>
+                            <!-- <td>{{ x.isbn }}</td> -->
+                            <td>{% for y in x.subject %}
+                                {{ y }}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
+                            </td>
+                            <td>{% for y in x.language %}
+                                {{ y }}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
+                            </td>
+                            <td>{% for y in x.publisher %}
+                                {{ y }}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
+                            </td>
+                            <td style="width: 96.26px; text-align: center">{{ x.published }}</td>
+                         </tr>
+                    {% endfor %}
+                </tbody>
+            </table>    
+        {% endif %}
+    {% else %}
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHx8&w=1000&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+    </style>
+    {% endif %}
+{% endblock %}

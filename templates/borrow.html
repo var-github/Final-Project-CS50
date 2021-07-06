@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Borrow
+{% endblock %}
+
+{% block main %}
+{% if book is not none %}
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap" rel="stylesheet">
+    </head>
+    <h1 style="font-family: 'Averia Sans Libre', cursive; font-size: 50px; color: #ab0000"> Currently Reading - {{ message.title }} </h1>
+    <div style="height: 20px"></div>
+    <img src="{{ cover }}" alt="" style="margin-right: 10px" align="left">
+    {% if "names" in message %}
+        <p style="text-align: left">
+            <b>Author: </b>
+            {% for y in message["names"] %}
+                {{ y }}{{ ", " if not loop.last else "" }}
+            {% endfor %}
+        </p>
+    {% endif %}
+    <p style="text-align: left">
+        {% if "publish_date" in message %}
+                <b>Publish Date: </b>
+                    {{ message["publish_date"] }}
+        {% endif %}
+        {% if "series" in message %}
+            ; <b>Series: </b>
+            {% for y in message["series"] %}
+                {{ y }}{{ ", " if not loop.last else "" }}
+            {% endfor %}
+        {% endif %}
+        {% if "number_of_pages" in message %}
+            ; <b>Number of pages: </b>
+            {{ message["number_of_pages"] }}
+        {% endif %}
+        {% if "genres" in message %}
+            ; <b>Genres: </b>
+            {% for y in message["genres"] %}
+                {{ y }}{{ ", " if not loop.last else "" }}
+            {% endfor %}
+        {% endif %}
+        {% if "languages" in message %}
+            ; <b>Languages: </b>
+            {% for y in message["languages"] %}
+                {{ y }}{{ ", " if not loop.last else "" }}
+            {% endfor %}
+    {% endif %}
+    </p>
+    {% if "publishers" in message %}
+        <p style="word-wrap: break-word; text-align: left">
+            <b>Publishers: </b>
+            {% for y in message["publishers"] %}
+                {{ y }}{{ ", " if not loop.last else "" }}
+            {% endfor %}
+        </p>
+    {% endif %}
+        {% if "first_sentence" in message %}
+        <p style="text-align: left">
+            <b>First sentence: </b>
+            {{ message["first_sentence"]["value"] }}
+        </p>
+    {% endif %}
+    {% if "description" in message %}
+        <p style="word-wrap: break-word; text-align: left">
+            <b>Description: </b>
+            {{ message["description"] }}
+        </p>
+    {% endif %}
+    {% if "work" in message %}
+        {% for y in message["work"] %}
+        {% if y == "subjects" %}
+                <p style="word-wrap: break-word; text-align: left">
+                    <b>Subjects: </b>
+                    {% for z in message["work"][y] %}
+                        {{ z }}{{ ", " if not loop.last else "" }}
+                    {% endfor %}
+                </p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <p><img src="{{ author }}" alt=""></p>
+    <h6 style="position: absolute; top: 13.8%; right: 0.5%">Due-date: {{ due }}</h6>
+    <form action="/return" method="post" style="">
+        <input type="hidden" value="None" name="book_id">
+        <input type="submit" value="Return book">
+    </form>
+{% else %}
+    {% if message == "3" %}
+        <h2>Book returned</h2>
+        Since your book was due, we returned it. If you want you could borrow it for another two weeks.
+        <p>
+            <form action="/" method="get" style="position: absolute; left: 37%; width: 148.56px">
+                <input type="submit" value="Okay" style="width: 148.56px">
+            </form>
+            <form action="/borrow" method="post" style="position: absolute; left: 49.75%; width: 148.56px">
+                <input type="hidden" value="{{ book_id }}" name="book_id">
+                <input type="submit" value="Borrow again">
+            </form>
+        </p>
+    {% else %}
+        {% if message == "2" %}
+            This book is currently unavailable, but it will be returned before {{ due }}. Please try again after it is returned
+            <div style="height: 15px"></div>
+            <form action="/" method="get">
+                <input type="submit" value="Okay" style="width: 148.56px; height: 32.5px">
+            </form>
+        {% else %}
+            <h2> Currently Reading </h2>
+            {% if message == "1" %}
+                Looks like you forgot to return the book you were reading
+                <p>
+                    <form action="/" method="get" style="position: absolute; left: 37%; width: 148.56px">
+                        <input type="submit" value="Cancel" style="width: 148.56px">
+                    </form>
+                    <form action="/return" method="post" style="position: absolute; left: 49.75%">
+                        <input type="hidden" value="{{ book_id }}" name="book_id">
+                        <input type="submit" value="Return and Borrow">
+                    </form>
+                </p>
+            {% else %}
+                Currently you are not reading any book
+                <div style="height: 10px"></div>
+                <form action="/search" method="get">
+                    <input type="submit" value="Borrow book">
+                </form>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    {% if message is not none %}
+        <head>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap" rel="stylesheet">
+        </head>
+        <h1 style="font-family: 'Averia Sans Libre', cursive; font-size: 47px; color: #0030a1">{{ message.title }}</h1>
+        <div style="height: 25px"></div>
+        <img src="{{ cover }}" alt="" style="margin-right: 10px" align="left">
+        <p style="word-wrap: break-word; text-align: left">
+            {% if "publish_date" in message %}
+                <b>Publish Date: </b>
+                {{ message["publish_date"] }}
+            {% endif %}
+            {% if "series" in message %}
+                ; <b>Series: </b>
+                {% for y in message["series"] %}
+                    {{ y }}{{ ", " if not loop.last else "" }}
+                {% endfor %}
+            {% endif %}
+            {% if "number_of_pages" in message %}
+                ; <b>Number of pages: </b>
+                {{ message["number_of_pages"] }}
+            {% endif %}
+            {% if "genres" in message %}
+                <b>Genres: </b>
+                {% for y in message["genres"] %}
+                    {{ y }}{{ ", " if not loop.last else "" }}
+                {% endfor %}
+            {% endif %}
+        </p>
+        {% if "languages" in message %}
+            <p style="word-wrap: break-word; text-align: left">
+                <b>Languages: </b>
+                {% for y in message["languages"] %}
+                    {{ y }}{{ ", " if not loop.last else "" }}
+                {% endfor %}
+            </p>
+        {% endif %}
+        {% if "names" in message %}
+            <p style="text-align: left">
+                <b>Author: </b>
+                {% for y in message["names"] %}
+                    {{ y }}{{ ", " if not loop.last else "" }}
+                {% endfor %}
+            </p>
+        {% endif %}
+        {% if "publishers" in message %}
+            <p style="word-wrap: break-word; text-align: left">
+                <b>Publishers: </b>
+                {% for y in message["publishers"] %}
+                    {{ y }}{{ ", " if not loop.last else "" }}
+                {% endfor %}
+            </p>
+        {% endif %}
+        {% if "first_sentence" in message %}
+            <p style="text-align: left">
+                <b>First sentence: </b>
+                {{ message["first_sentence"]["value"] }}
+            </p>
+        {% endif %}
+        {% if "description" in message %}
+            <p style="word-wrap: break-word; text-align: left">
+                <b>Description: </b>
+                {{ message["description"] }}
+            </p>
+        {% endif %}
+        {% if "work" in message %}
+            {% for y in message["work"] %}
+                {% if y == "subjects" %}
+                    <p style="word-wrap: break-word; text-align: left">
+                        <b>Subjects: </b>
+                        {% for z in message["work"][y] %}
+                            {{ z }}{{ ", " if not loop.last else "" }}
+                        {% endfor %}
+                    </p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        <h2> Currently Reading </h2>
+        Currently you are not reading any book
+    {% endif %}
+{% endblock %}

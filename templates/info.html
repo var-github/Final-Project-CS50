@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Info
+{% endblock %}
+
+{% block main %}
+<h2> {{ message.title }} </h2>
+<div style="height: 20px"></div>
+<img src="{{ cover }}" alt="" style="margin-right: 10px" align="left">
+{% if "names" in message %}
+    <p style="text-align: left">
+        <b>Author: </b>
+        {% for y in message["names"] %}
+            {{ y }}{{ ", " if not loop.last else "" }}
+        {% endfor %}
+    </p>
+{% endif %}
+<p style="word-wrap: break-word; text-align: left">
+    {% if "publish_date" in message %}
+            <b>Publish Date: </b>
+                {{ message["publish_date"] }}
+    {% endif %}
+    {% if "series" in message %}
+        ; <b>Series: </b>
+        {% for y in message["series"] %}
+            {{ y }}{{ ", " if not loop.last else "" }}
+        {% endfor %}
+    {% endif %}
+    {% if "number_of_pages" in message %}
+        ; <b>Number of pages: </b>
+        {{ message["number_of_pages"] }}
+    {% endif %}
+    {% if "genres" in message %}
+        ; <b>Genres: </b>
+        {% for y in message["genres"] %}
+            {{ y }}{{ ", " if not loop.last else "" }}
+        {% endfor %}
+    {% endif %}
+    {% if "languages" in message %}
+        ; <b>Languages: </b>
+        {% for y in message["languages"] %}
+            {{ y }}{{ ", " if not loop.last else "" }}
+        {% endfor %}
+    {% endif %}
+    {% if "publishers" in message %}
+        ; <b>Publishers: </b>
+        {% for y in message["publishers"] %}
+            {{ y }}{{ ", " if not loop.last else "" }}
+        {% endfor %}
+    {% endif %}
+    {% if "first_sentence" in message %}
+        ; <b>First sentence: </b>
+        {{ message["first_sentence"]["value"] }}
+    {% endif %}
+    </p>
+{% if "description" in message %}
+    <p style="word-wrap: break-word; text-align: left">
+        <b>Description: </b>
+        {{ message["description"] }}
+    </p>
+{% endif %}
+{% if "work" in message %}
+    {% for y in message["work"] %}
+    {% if y == "subjects" %}
+            <p style="word-wrap: break-word; text-align: left">
+                <b>Subjects: </b>
+                {% for z in message["work"][y] %}
+                    {{ z }}{{ ", " if not loop.last else "" }}
+                {% endfor %}
+            </p>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<p><img src="{{ author }}" alt=""></p>
+{% if book_id is not none %}
+    <form action="/borrow" method="post" style="position: absolute; top: 22%; right: 2%">
+        <input type="hidden" value="{{ book_id }}" name="book_id">
+        <input type="submit" value="Borrow book">
+    </form>
+{% else %}
+    <input type="submit" value="Currently reading" style="position: absolute; top: 22%; right: 2%">
+{% endif %}
+{% endblock %}
