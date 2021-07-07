@@ -5,7 +5,7 @@
 
 ### The app has three main parts:
 - [Searching books](https://github.com/var-github/Final-Project/blob/main/README.md#search-books)
-- Borrowing books
+- [Borrowing books](https://github.com/var-github/Final-Project/blob/main/README.md#borrow-books)
 - Returning books
 
 &nbsp;
@@ -19,6 +19,6 @@ Books can be searched in the ***general category*** or by its:-
 
 The info.html page is displayed when one of the books from the search results is selected. This page shows more detailed information on the book along with cover page and author picture if available. Books can be borrowed from this page.
 
-The entire process of searching and displaying happens in ***/search*** route.
+The entire process of searching and displaying books happen in ***/search*** route.
 
 ## *Borrow Books*
