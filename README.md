@@ -6,7 +6,7 @@
 ### The app has three main parts:
 - [Searching books](https://github.com/var-github/Final-Project/blob/main/README.md#search-books)
 - [Borrowing books](https://github.com/var-github/Final-Project/blob/main/README.md#borrow-books)
-- Returning books
+- [Returning books](https://github.com/var-github/Final-Project/blob/main/README.md#return-books)
 
 &nbsp;
 ## *Search Books*
@@ -22,5 +22,10 @@ The info.html page is displayed when one of the books from the search results is
 The entire process of searching and displaying books happen in ***/search*** route.
 
 ## *Borrow Books*
-The user can borrow a new book by logging in to their account, searching and selecting the borrow option on the Info page. All borrow requests are handled by the ***/borrow*** route. Books already borrowed by someone else cannot be borrowed until they return it and multiple books cannot be borrowed at the same time. All books have a due date of two weeks and must be returned within that time. Currently the application only extends the due date when it is returned late, fines and other punishments can be implemented by the library.<br />
-Important information on the borrowed book will be displayed on the home and borrow page. The return option and due date are also present in the borrow page. The borrow page is characterised by the borrow.html file.........
+The user can borrow a new book by logging in to their account, searching and selecting the borrow option on the Info page. All borrow requests are handled by the ***/borrow*** route. Books already borrowed by someone else cannot be borrowed until they return it. The application also dosent allow multiple books to be borrowed and will ask the user if he wants to return the previous book before borrowing another. All books have a due date of two weeks and must be returned within that time. Currently the application only extends the due date when it is returned late, fines and other punishments can be implemented by the library.<br />
+The borrow page is characterised by the borrow.html file that displays important information on the borrowed book along with the return option and due date.
+
+## *Return Books*
+To return a book the user has to navigate to the borrow page after signing in to their account. The borrow page displays the book you are currently reading and has the return option. Upon clicking the return option you will be redirected to a ***/return*** route - which returns the book and takes you to the home page.<br />
+From here new book scan be borrowed by navigating to the search column.<br />
+It must be noted that if the book is already due the system will return it and ask for confirmation if you want to borrow it for another two week.
