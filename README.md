@@ -14,4 +14,5 @@ Searching books is one of the main tasks the application handles and to do so th
 The search.html page acts as the user interface to search books. In search.html the category in which you want to search and the keyword to search are taken as input. This is then formatted and submited to the API. The API returns json file with necessary information related to the query. This file is processed and important information are displayed. <br />
 The entire process of searching and displaying happens in ***/search*** route.
 
-The info.html page is displayed when one of the books from the search results is selected. This page shows more detailed information on the book along with cover page and author picture if available. Books can be borrowed from this page by selecting the borrow button.
+The info.html page is displayed when one of the books from the search results is selected. This page shows more detailed information on the book along with cover page and author picture if available. Books can be borrowed from this page. <br />
+Incase a book is searched by its isbn number the book is directly displayed on the info page.
