@@ -29,3 +29,11 @@ The borrow page is characterised by the borrow.html file that displays important
 To return a book the user has to navigate to the borrow page after signing in to their account. The borrow page displays the book you are currently reading and has the return option. Upon clicking the return option you will be redirected to a ***/return*** route - which returns the book and takes you to the home page.<br />
 From here new book scan be borrowed by navigating to the search column.<br />
 It must be noted that if the book is already due the system will return it and ask for confirmation if you want to borrow it for another two week.
+
+&nbsp;
+## *Other files*
+#### **1.layout.html**
+It houses the basic structure for all other html files. Contains the navigation bar, byline and other visual details, and is a template for the other files.
+#### **2.base.html**
+The search page is a host for a lot of program, due to its many functionalities and hence has its own template - base.html. This file is very similar to the layout file, but has few tweaks to accomplish its tasks.
+#### **3.login.html**
