@@ -16,3 +16,6 @@ The entire process of searching and displaying happens in ***/search*** route.
 
 The info.html page is displayed when one of the books from the search results is selected. This page shows more detailed information on the book along with cover page and author picture if available. Books can be borrowed from this page. <br />
 Incase a book is searched by its isbn number the book is directly displayed on the info page.
+
+***On the inside each book is identified by its book id provided by the API.***
+
