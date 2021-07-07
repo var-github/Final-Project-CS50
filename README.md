@@ -22,3 +22,5 @@ The info.html page is displayed when one of the books from the search results is
 The entire process of searching and displaying books happen in ***/search*** route.
 
 ## *Borrow Books*
+The user can borrow a new book by logging in to their account, searching and selecting the borrow option on the Info page. All borrow requests are handled by the ***/borrow*** route. Books already borrowed by someone else cannot be borrowed until they return it and multiple books cannot be borrowed at the same time. All books have a due date of two weeks and must be returned within that time. Currently the application only extends the due date when it is returned late, fines and other punishments can be implemented by the library.<br />
+Important information on the borrowed book will be displayed on the home and borrow page. The return option and due date are also present in the borrow page. The borrow page is characterised by the borrow.html file.........
