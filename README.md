@@ -1,7 +1,7 @@
 # Final-Project
-#### The project entails a library management system designed to be used by the people who are enrolled in a library. All new users of the library are prompted to register into the application by providing a username and password.
+#### The project entails a library management system designed to be used by the people who are enrolled in the library. All new users of the library are prompted to register into the application by providing a username and password.
 #### After registering/logging in users can search, borrow and return books. The process is independent of the librarian and hence is convienient and snappy.
-*The application is not only ment for borrowing and returning books, but also for browsing through the books in the library.*
+*The application is not only meant for borrowing and returning books, but also for browsing through the books in the library.*
 
 ### The app has three main parts:
 - [Searching books](https://github.com/var-github/Final-Project/blob/main/README.md#search-books)
