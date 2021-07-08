@@ -46,8 +46,3 @@ The search page is a host for a lot of program, due to its many functionalities 
 
 #### **7.index.html**
 
-#### **8.helpers.py**
-
-#### **9.info.db**
-
-#### **10.styles.css**
