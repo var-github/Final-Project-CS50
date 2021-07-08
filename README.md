@@ -38,4 +38,16 @@ It houses the basic structure for all other html files. Contains the navigation 
 The search page is a host for a lot of program, due to its many functionalities and hence has its own template - base.html. This file is very similar to the layout file, but has few tweaks to accomplish its tasks.
 #### **3.login.html**
 
-#### **3.register.html**
+#### **4.register.html**
+
+#### **5.display.html**
+
+#### **6.register.html**
+
+#### **7.index.html**
+
+#### **8.helpers.py**
+
+#### **9.info.db**
+
+#### **10.styles.css**
