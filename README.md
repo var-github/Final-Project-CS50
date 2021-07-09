@@ -70,3 +70,6 @@ Along with these routes there is an info function which looks up the api and ret
 ### *Things to remember*
 - Due date is set to two weeks, so return it before that<br />
 - Logout after use or someone else can use your account
+
+&nbsp;
+#### byline
