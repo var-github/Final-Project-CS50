@@ -39,11 +39,22 @@ The search page is a host for a lot of program, due to its many functionalities 
 #### **3.login.html**
 This file operates in the /login route and displays the interface to login to an existing account
 #### **4.register.html**
-This file displays the register page and submits the information to the / register route
+This file displays the register page and submits the information to the /register route
 #### **5.display.html**
 This page acts like a notification page and displays any error that occur during the login or register process. Wrong password and wrong username errors are also shown here
 #### **6.index.html**
 The home page is characterised by this file. It displays relevent information on the borrowed book and puts up a medium to perform other functions
 
 ## *Application.py*
+This file is the crux of the entire web application and contains all the back end programming and logic. The app has nine routes:
+- Main route (/)
+- Login route (/login)
+- Logout route (/logout)
+- Register route (/register)
+- Search route (/search)
+- Info route (/info)
+- Borrow route (/borrow)
+- Return route (/return)
+- Due route (/overdue)
 
+Along with these routes there is an info function which looks up the api and returns a dictionary with the formatted information. The formatted information is then processed by the concerning route. This framework extends to helpers.py that is reponsible for checking if a person is logged in.
