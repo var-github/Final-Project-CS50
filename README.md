@@ -31,7 +31,7 @@ From here new book scan be borrowed by navigating to the search column.<br />
 It must be noted that if the book is already due the system will return it and ask for confirmation if you want to borrow it for another two week.
 
 &nbsp;
-## *Other files*
+## *Helper files*
 #### **1. Layout.html**
 It houses the basic structure for all other html files. Contains the navigation bar, byline and other visual details, and is a template for the other files.
 #### **2. Base.html**
@@ -72,5 +72,5 @@ Along with these routes there is an info function which looks up the api and ret
 - Logout after use or someone else can use your account
 
 &nbsp;
-## About
-Hey guys, I am Varun R from Karnataka, India.
+## Video description
+
