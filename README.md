@@ -37,12 +37,13 @@ It houses the basic structure for all other html files. Contains the navigation 
 #### **2.base.html**
 The search page is a host for a lot of program, due to its many functionalities and hence has its own template - base.html. This file is very similar to the layout file, but has few tweaks to accomplish its tasks.
 #### **3.login.html**
-
+This file operates in the /login route and displays the interface to login to an existing account
 #### **4.register.html**
-
+This file displays the register page and submits the information to the / register route
 #### **5.display.html**
+This page acts like a notification page and displays any error that occur during the login or register process. Wrong password and wrong username errors are also shown here
+#### **6.index.html**
+The home page is characterised by this file. It displays relevent information on the borrowed book and puts up a medium to perform other functions
 
-#### **6.register.html**
-
-#### **7.index.html**
+## *Application.py*
 
