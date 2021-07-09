@@ -72,4 +72,4 @@ Along with these routes there is an info function which looks up the api and ret
 - Logout after use or someone else can use your account
 
 &nbsp;
-#### byline
+### *About*
