@@ -63,8 +63,10 @@ Along with these routes there is an info function which looks up the api and ret
 ## *General process*
 1. Login to your account
 2. Return the previous book (if borrowed) from the borrow page
-3. Then locate the book -------- by searching it via the search page
+3. Then locate the book by searching it via the search page
 4. After selecting the book from the search results click on the borrow option on the info page
-5. That's it, logout
+5. Happy reading - logout
 
-### *Thing to remember*
+### *Things to remember*
+- Due date is set to two weeks, so return it before that<br />
+- Logout after use or someone else can use your account
