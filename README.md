@@ -57,4 +57,4 @@ This file is the crux of the entire web application and contains all the back en
 - Return route (/return)
 - Due route (/overdue)
 
-Along with these routes there is an info function which looks up the api and returns a dictionary with the formatted information. The formatted information is then processed by the concerning route. This framework extends to helpers.py that is reponsible for checking if a person is logged in. The libraries that are used in this file are mentioned in the requirement.txt file.
+Along with these routes there is an info function which looks up the api and returns a dictionary with the formatted information. The formatted information is then processed by the concerning route. This framework extends to helpers.py that is reponsible for checking if a person is logged in. The libraries that are used in this file are mentioned in the ***requirements.txt*** file.
